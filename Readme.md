@@ -74,15 +74,12 @@ Mit der originalen Regelung und Parameteroptimierung konnten zwar auch 52 °C 
 ## Problembilder
 
 ### Fehlende Isolierung
-![Fehlende Isolierung][no_insulation]
-
-[no_insulation]: img/no_insulation_20140530_182740.jpg
+<img src="img/no_insulation_20140530_182740.jpg" alt="Fehlende Isolierung" width="500">
 
 ### Schlechte Sensorposition
-![Schlechte Sensorposition][img_bad_sensorposition]
+<img src="img/bad_sensorposition_20140530_175654.jpg" alt="Schlechte Sensorposition" width="500">
 
-[img_bad_sensorposition]: img/bad_sensorposition_20140530_175654.jpg
 
 ### Ungeeignetes Isolationsmaterial
-![wrong_material](img/wrong_material_20140530_123618.jpg "Ungeeignetes Isolationsmaterial")
+<img src="img/wrong_material_20140530_123618.jpg" alt="Ungeeignetes Isolationsmaterial" width="500">
 
