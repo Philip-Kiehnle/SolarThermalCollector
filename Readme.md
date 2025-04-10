@@ -51,7 +51,7 @@ In der folgenden Animation ist zu erkennen, wie die warme Sole vom Dach bis in d
 Die vertikale violette Linie zeigt die Position eines zusätzlich installierten digitalen Temperatursensors (Maxim DS18B20 One-Wire), mit dem der Temperaturverlauf von Simulation und Realität verglichen werden kann. 
 
 #### V2.3: Datenfusion
-Durch das hohe Delta von 25 Kelvin für das "Eimerprinzip" wird viel Wärme beim Transport an die Rohre und Umgebung abgegeben. Ein kontinuierlicher Betrieb verspricht bei guten Einstrahlungsbedingung höhere Erträge. Das Ziel dieses Ansatzes ist es, der Solarregelung mit externen Daten die Entscheidung zu erleichtern, ob ein kontinuierlicher Betrieb der Pumpe lohnt. Als externe Daten kommen zum Beispiel Wetterdaten, Außentemperaturen, die Windgeschwindigkeit oder die aktuelle Leistung der Photovoltaikanlage als Einstrahlungssensor in Betracht.
+Durch das hohe Delta von 25 Kelvin für das "Eimerprinzip" wird viel Wärme beim Transport an die Rohre und Umgebung abgegeben. Ein kontinuierlicher Betrieb verspricht bei guten Einstrahlungsbedingung höhere Erträge. Das Ziel dieses Ansatzes ist es, der Solarregelung mit externen Daten die Entscheidung zu erleichtern, ob ein kontinuierlicher Betrieb der Pumpe lohnt. Als externe Daten kommen zum Beispiel Wetterdaten, Außentemperaturen, die Windgeschwindigkeit oder die aktuelle Leistung der Photovoltaikanlage als Alternative zu einem Einstrahlungssensor in Betracht.
 
 Außerdem soll untersucht werden, ob die Einschaltbedingung von 25 Kelvin in Abhängigkeit der externen Bedingungen und der Speichertemperatur dynamisch angepasst werden sollte.
 
@@ -61,14 +61,14 @@ Da der Kollektor zeitnah durch sechs zusätzliche Photovoltaikmodule auf dem Sü
 
 
 ## Monitoring
-Um das Systemverhalten in der Praxis zu untersuchen, gibt der Microcontroller einmal pro Sekunde die Temperaturen per UART aus. Diese werden dann von einem ausgedienten Android Smartphone per UART-USB Wandler an der USB-OTG Schnittstelle eingelesen und in eine Zeitreihendatenbank (influxdb) gespeichert. Auf dem Android Smartphone läuft außerdem eine Grafana Instanz zur Visualisierung.
+Um das Systemverhalten in der Praxis zu untersuchen, gibt der Microcontroller alle drei Sekunden die Temperaturen per UART aus. Diese werden dann von einem ausgedienten Android Smartphone per UART-USB Wandler an der USB-OTG Schnittstelle eingelesen und in eine Zeitreihendatenbank (influxdb) gespeichert. Auf dem Android Smartphone läuft außerdem eine Grafana Instanz zur Visualisierung.
 An guten Tagen ergibt sich ein Betrieb, der etwa folgendermaßen aussieht:
 ![monitoring](img/grafana_log.png "Monitoring über Grafana")
 
 Die grüne Kurze zeigt den Intervallbetrieb der Umwälzpumpe.  
 In der Abbildung ist auch die deutliche Temperaturabweichung des neu angebrachten Kollektorfühlers(orange) und des originalen Sensors(gelb) während des Pumpenstillstands zu erkennen.  
 Die violette Kurve zeigt die Temperatur im Speicher und steigt im Tagesverlauf auf 52 °C.  
-Mit der originalen Regelung und Parameteroptimierung konnten zwar auch 52 °C im Speicher erreicht werden, jedoch werden mit dem optimierten Intervallbetrieb an bewölkten Tagen deutlich höhere Erträge erzielt. Als Nebeneffekt wird zur Erreichung der 52 °C weniger Strom für die Pumpe aufgewendet als beim kontinuierlichen Betrieb. Zudem benötigt der Microcontroller der eigenen Regelung inkl. 5V-Netzteil und Android Smartphone nur ca. 1 W, währende die Viessmann Regelung ca. 3 W aus dem 230 V Netz benötigt.
+Mit der originalen Regelung und Parameteroptimierung konnten zwar auch 52 °C im Speicher erreicht werden, jedoch werden mit dem optimierten Intervallbetrieb an teilweise bewölkten Tagen deutlich höhere Erträge erzielt. Als Nebeneffekt wird zur Erreichung der 52 °C weniger Strom für die Pumpe aufgewendet als beim kontinuierlichen Betrieb. Zudem benötigt der Microcontroller der eigenen Regelung inkl. 5V-Netzteil und Android Smartphone nur ca. 1 W, während die Viessmann Regelung ca. 3 W aus dem 230 V Netz benötigt. Innerhalb der Pumpintervalle der Pumpe werden bei der eingestellten Stufe 1 zusätzlich 45 Watt benötigt.
 
 
 ## Problembilder
